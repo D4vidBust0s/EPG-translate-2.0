@@ -1,0 +1,283 @@
+﻿<Window x:Class="EPG_translate.IngestaD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPG_translate"
+        mc:Ignorable="d"
+        
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="Ingesta" 
+        Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" Loaded="Window_Loaded" Icon="/Images/Icon.png">
+    <Border CornerRadius="10">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/Generic.png"/>
+        </Border.Background>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="289*"/>
+                <ColumnDefinition Width="911*"/>
+
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Definicion de filas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*" />
+                <RowDefinition Height="156*" />
+
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <!--#region Cabezero -->
+
+            <Label
+                   Content="Realizando Ingesta"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   Foreground="White"
+                   Padding="15,0,0,0" 
+                   Grid.Column="1" 
+                   Height="34"
+                   HorizontalAlignment="Left"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,30,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Close.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,35.5,0"
+                   Width="24"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,70,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Minimizar.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,74.5,0"
+                   Width="26"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_2"/>
+
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/engranaje.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,117,0"
+                   Width="25"
+                   Cursor="Hand" 
+                   MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,112,0"/>
+
+            <!--#endregion-->
+
+            <!--#region Sidebar -->
+            <StackPanel
+                        Grid.Row="1"
+                        VerticalAlignment="Center" 
+                        Height="80"
+                        >
+
+                <Button Height="30"
+                        Width="200"
+                        Content="Dasboard"
+                        FontSize="20" Click="Button_Click">
+                </Button>
+
+                <Button Height="30"
+                        Width="200"
+                        Content="Paso # 1 ingesta"
+                        FontSize="20"
+                        Margin="0,20,0,0" Click="Button_Click_1">
+                </Button>
+
+            </StackPanel>
+            <!--#endregion-->
+
+            <!--#region Content -->
+            <Grid Grid.Column="1" 
+                  Grid.Row="1">
+
+                <!--Definicion de Columnas-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Definicion de Filas-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="257*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--Cabecero-->
+                <Label x:Name="lblEncabezado" Grid.Column="1" Grid.ColumnSpan="2"
+                       Content="Espere mientras se completan las acciones en el servidor cherryEPG"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+
+                <!--Validadores-->
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,55,0,0" >
+                    <Label Content="Interactuando con el servidor "
+                           FontSize="20"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           />
+
+                    <!--Grid Validadores-->
+                    <Grid Height="250" Margin="40,70,40,0" Width="600" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="65*"/>
+                            <ColumnDefinition Width="261*"/>
+                            <ColumnDefinition  Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+                        <!--Validadores-->
+                        <ProgressBar x:Name="progress1" Grid.Column="0" Grid.Row="0"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30"/>
+
+                        <ProgressBar x:Name="progress2" Grid.Column="0" Grid.Row="1"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30"/>
+
+                        <ProgressBar x:Name="progress3" Grid.Column="0" Grid.Row="2"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30"/>
+
+                        <ProgressBar x:Name="progress4" Grid.Column="0" Grid.Row="3"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30"/>
+
+                        <ProgressBar x:Name="progress5" Grid.Column="0" Grid.Row="4"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30"/>
+
+                        <!--Textos Validaciones-->
+                        <Label x:Name="lblProgres1" Grid.Column="1" Grid.Row="0" 
+                               Content="Estableciendo conexión SSH con el servidor CherryEPG" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblProgres2" Grid.Column="1" Grid.Row="1" 
+                               Content="Borrando archivos anteriores " 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblProgres3" Grid.Column="1" Grid.Row="2" 
+                               Content="Subiendo nuevos archivos mediante SFTP" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblProgres4" Grid.Column="1" Grid.Row="3" 
+                               Content="Notificando a cherryEPG de los nuevos cambios" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblProgres5" Grid.Column="1" Grid.Row="4" 
+                               Content="Construyendo EIT" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <!--Ok - Failed-->
+                        <Label x:Name="lblOk1" Grid.Column="3" Grid.Row="0" 
+                               Content="---" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblOk2" Grid.Column="3" Grid.Row="1" 
+                               Content="---" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblOk3" Grid.Column="3" Grid.Row="2" 
+                               Content="---" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblOk4" Grid.Column="3" Grid.Row="3" 
+                               Content="---" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblOk5" Grid.Column="3" Grid.Row="4" 
+                               Content="---" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <!--Number-->
+                        
+
+                    </Grid>
+
+                    <Button
+                            x:Name="finalizar"
+                            Margin="0,25,0,0"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            Content="Continuar"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" 
+                            FontSize="18"
+                            Click="finalizar_Click"
+                            Width="250">
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+
+
+    </Border>
+</Window>

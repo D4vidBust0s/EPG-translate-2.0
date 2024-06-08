@@ -1,0 +1,240 @@
+﻿<Window x:Class="EPG_translate.Configuracion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPG_translate"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="Principal" Height="550" Width="960"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" Icon="/Images/Icon.png">
+
+    <Border CornerRadius="10" BorderBrush="White" BorderThickness="1.5">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/FondoBasic.png"/>
+        </Border.Background>
+
+
+        <!--#region Definicion de columnas -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="289*"/>
+                <ColumnDefinition Width="911*"/>
+
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Definicion de filas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*" />
+                <RowDefinition Height="156*" />
+
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <!--#region Cabezero -->
+
+            <Label
+                   Content="Configuración del sistema"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   Foreground="White"
+                   Padding="15,0,0,0" 
+                   Grid.Column="1" 
+                   Height="34"
+                   HorizontalAlignment="Left"/>
+
+
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,30,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Close.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,35.5,0"
+                   Width="24"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
+
+            <!--#endregion-->
+
+            <!--#region Sidebar -->
+            <StackPanel
+                        Grid.Row="1"
+                        VerticalAlignment="Center" 
+                        Height="80"
+                        />
+            <Image Source="Images/EngranajeConf.png"
+                       Grid.Column="0" Grid.RowSpan="5"/>
+            <!--#endregion-->
+
+            <!--#region Content -->
+            <Grid Grid.Column="1" 
+                  Grid.Row="1">
+
+                <!--Definicion de Columnas-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75*" />
+                    <ColumnDefinition Width="203*" />
+                    <ColumnDefinition Width="267*" />
+                    <ColumnDefinition Width="182*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Definicion de Filas-->
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+
+                </Grid.RowDefinitions>
+
+                <Image x:Name="imgServer" Source="/Images/Server.png" HorizontalAlignment="Center" Margin="0,54,0,0" Grid.RowSpan="2" Width="55" MouseDown="Image_MouseDown"/>
+                <Image Grid.Row="1" Source="/Images/Puerto.png" HorizontalAlignment="Center" Margin="0,54,0,54" Grid.RowSpan="3" Width="55" MouseDown="Image_MouseDown_1"/>
+                <Image Grid.Row="3" Source="/Images/User.png" HorizontalAlignment="Center" Margin="0,7,0,7" Width="41" MouseDown="Image_MouseDown_2"/>
+                <Image Grid.Row="4" Source="/Images/Password.png" HorizontalAlignment="Center" Margin="0,7,0,7" Width="40" MouseDown="Image_MouseDown_3"/>
+                <Image Grid.Row="5" Source="/Images/GMT.png" HorizontalAlignment="Center" Margin="0,4,0,5" Width="51" MouseDown="Image_MouseDown_4"/>
+                <Image Grid.Row="6" Source="/Images/xml-image.png" HorizontalAlignment="Center" Margin="0,7,0,7" Width="43" MouseDown="Image_MouseDown_5"/>
+                <Image Grid.Row="7" Source="/Images/xml-image.png" HorizontalAlignment="Center" Margin="0,7,0,7" Width="43" MouseDown="Image_MouseDown_6"/>
+
+                <Label Content="IP del servidor CheryEPG" Grid.Row="1" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+                <Label Content="No. de puerto " Grid.Row="2" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+                <Label Content="Usuario" Grid.Row="3" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+                <Label Content="Password" Grid.Row="4" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+                <Label Content="GMT" Grid.Row="5" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+                <Label Content="Nombre Archivo Citytv" Grid.Row="6" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+                <Label Content="Nombre Archivo ETTV" Grid.Row="7" Grid.Column="1" Foreground="White" FontSize="17" HorizontalAlignment="Left" VerticalAlignment="Center" Height="28" Width="195"/>
+
+                <TextBox x:Name="txtIp" Text="255.255.255.0" Grid.Row="1" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtIp_GotFocus"/>
+                <TextBox x:Name="txtPort" Text="00" Grid.Row="2" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtPort_GotFocus"/>
+                <TextBox x:Name="txtUser" Text="User" Grid.Row="3" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtUser_GotFocus"/>
+                <PasswordBox x:Name="txtPassword" PasswordChar="*" Password="123456789" Grid.Row="4" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtPassword_GotFocus"/>
+                <TextBox x:Name="txtGMT" Text="+ 00000" Grid.Row="5" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtGMT_GotFocus"/>
+                <TextBox x:Name="txtNameOne" Text="NombreArchivo1" Grid.Row="6" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtNameOne_GotFocus"/>
+                <TextBox x:Name="txtNameTwo" Text="NombreArchivo2" Grid.Row="7" Grid.Column="2" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" IsEnabled="False" GotFocus="txtNameTwo_GotFocus"/>
+
+                <TextBlock x:Name="btn1" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           Cursor="No"
+                           MouseDown="TextBlock_MouseDown"/>
+
+                <TextBlock x:Name="btn2" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           MouseDown="TextBlock_MouseDown_1"
+                           Cursor="No"/>
+
+                <TextBlock x:Name="btn3" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           Cursor="No" 
+                           MouseDown="TextBlock_MouseDown_2"/>
+
+                <TextBlock x:Name="btn4" Grid.Column="3" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           Cursor="No" 
+                           MouseDown="TextBlock_MouseDown_3"/>
+
+                <TextBlock x:Name="btn5" Grid.Column="3" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           Cursor="No" 
+                           MouseDown="TextBlock_MouseDown_4"/>
+
+                <TextBlock x:Name="btn6" Grid.Column="3" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           Cursor="No" 
+                           MouseDown="TextBlock_MouseDown_5"/>
+
+                <TextBlock x:Name="btn7" Grid.Column="3" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center"
+                           Text="Guardar"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           Padding="0,4,0,0"
+                           TextAlignment="Center"
+                           Cursor="No" 
+                           MouseDown="TextBlock_MouseDown_6"/>
+
+
+
+
+
+            </Grid>
+            <!--#endregion-->
+
+
+
+        </Grid>
+    </Border>
+</Window>

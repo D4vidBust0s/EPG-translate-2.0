@@ -1,0 +1,347 @@
+﻿<Window x:Class="EPG_translate.Principal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPG_translate"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Title="Principal" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" Icon="/Images/Icon.png">
+
+    <Border CornerRadius="10">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/Dashboard.png"/>
+        </Border.Background>
+
+        <!--#region Definicion de columnas -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="289*"/>
+                <ColumnDefinition Width="911*"/>
+
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Definicion de filas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*" />
+                <RowDefinition Height="156*" />
+
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <!--#region Cabezero -->
+
+            <Label
+                   Content="Dashboard"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   Foreground="White"
+                   Padding="15,0,0,0" 
+                   Grid.Column="1" 
+                   Height="34"
+                   HorizontalAlignment="Left"/>
+
+
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,30,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Close.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,35.5,0"
+                   Width="24"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,70,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Minimizar.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,74.5,0"
+                   Width="26"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_2"/>
+
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/engranaje.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,117,0"
+                   Width="25"
+                   Cursor="Hand" 
+                   MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,112,0"/>
+
+            <!--#endregion-->
+
+            <!--#region Sidebar -->
+            <StackPanel
+                        Grid.Row="1"
+                        VerticalAlignment="Center" 
+                        Height="80"
+                        >
+
+                <Button Height="30"
+                        Width="200"
+                        Content="Dasboard"
+                        FontSize="20" Click="Button_Click">
+                </Button>
+                <Button Height="30"
+                        Width="200"
+                        Content="Iniciar ingesta"
+                        FontSize="20"
+                        Margin="0,20,0,0" Click="Button_Click_1">
+                </Button>
+            </StackPanel>
+            <!--#endregion-->
+
+            <!--#region Content -->
+            <Grid Grid.Column="1" 
+                  Grid.Row="1">
+
+                <!--Definicion de Columnas-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="42*"/>
+                    <ColumnDefinition Width="183*"/>
+                    <ColumnDefinition Width="490*"/>
+                    <ColumnDefinition Width="161*"/>
+                    <ColumnDefinition Width="35*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Definicion de Filas-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27*"/>
+                    <RowDefinition Height="64*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="64*"/>
+                    <RowDefinition Height="46*"/>
+                </Grid.RowDefinitions>
+                
+                <!--Encabezado City-->
+                <TextBlock Grid.Column="2" Grid.Row="1"
+                           Text="Detalles EPG Citytv"
+                           Foreground="White"
+                           FontSize="20"
+                           Margin="5,43,0,0"
+                           FontWeight="Light">
+                </TextBlock>
+
+                <TextBlock Grid.Column="2" x:Name="txtFecha"
+                           Foreground="White"
+                           Text="00/00/00"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="25"/>
+
+                <!--Encabezado El Tiempo-->
+                <TextBlock Grid.Column="2" Grid.Row="3"
+                           Text="Detalles EPG EL Tiempo Televisión"
+                           Foreground="White"
+                           FontSize="20"
+                           Margin="5,43,0,0"
+                           FontWeight="Light">
+                </TextBlock>
+                
+                <!--Label Inicio EPG City -->
+                <TextBlock Grid.Column="2" Grid.Row="1" 
+                           Foreground="#A80053"
+                           Text="Fecha de inicio:"
+                           FontSize="19"
+                           Margin="5,80,0,0"
+                           FontWeight="SemiBold">
+                </TextBlock>
+
+                <!--Fecha Inicio EPG City -->
+                <TextBlock x:Name="txtInicioCity" Grid.Column="2" Grid.Row="1" 
+                           Foreground="Black"
+                           Text="-----------------------"
+                           FontSize="18"
+                           Margin="155,80,0,0">
+                </TextBlock>
+
+                <!--Label Final EPG City -->
+                <TextBlock Grid.Column="2" Grid.Row="1" 
+                           Foreground="#A80053"
+                           Text="Fecha Final:"
+                           FontSize="19"
+                           Margin="5,110,0,0"
+                           FontWeight="SemiBold">
+                </TextBlock>
+
+                <!--Fecha Final EPG City -->
+                <TextBlock x:Name="txtIFinalCity" Grid.Column="2" Grid.Row="1" 
+                           Foreground="Black"
+                           Text="-----------------------"
+                           FontSize="18"
+                           Margin="155,110,0,0">
+                </TextBlock>
+
+                <!--Label Inicio EPG ElTiempo -->
+                <TextBlock Grid.Column="2" Grid.Row="3" 
+                           Foreground="#A80053"
+                           Text="Fecha de inicio:"
+                           FontSize="19"
+                           Margin="5,80,0,0"
+                           FontWeight="SemiBold">
+                </TextBlock>
+
+                <!--Fecha Inicio EPG El Tiempo -->
+                <TextBlock x:Name="txtInicioET" Grid.Column="2" Grid.Row="3" 
+                           Foreground="Black"
+                           Text="-----------------------"
+                           FontSize="18"
+                           Margin="155,80,0,0">
+                </TextBlock>
+
+                <!--Label Final EPG ElTiempo -->
+                <TextBlock Grid.Column="2" Grid.Row="3" 
+                           Foreground="#A80053"
+                           Text="Fecha Final:"
+                           FontSize="19"
+                           Margin="5,110,0,0"
+                           FontWeight="SemiBold">
+                </TextBlock>
+
+                <!--Fecha Final EPG El Tiempo -->
+                <TextBlock x:Name="txtFinalET" Grid.Column="2" Grid.Row="3" 
+                           Foreground="Black"
+                           Text="-----------------------"
+                           FontSize="18"
+                           Margin="155,110,0,0">
+                </TextBlock>
+
+                <!--Boton estado City -->
+                <Ellipse Grid.Column="1" Grid.Row="1"
+                         Height="15" Width="15"
+                         Fill="Green"
+                         Margin="0,100,0,0"
+                         x:Name="IndicadorCity">
+                </Ellipse>
+
+                <!--Boton estado El Tiempo -->
+                <Ellipse Grid.Column="1" Grid.Row="3"
+                         Height="15" Width="15"
+                         Fill="Green"
+                         Margin="0,100,0,0"
+                         x:Name="IndicadorEltiempo">
+                </Ellipse>
+
+                <!--Validez City -->
+                <TextBlock Grid.Column="3" Grid.Row="1"
+                           Text="Caducidad"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0,-120,0,0"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           TextAlignment="Center"
+                           Padding="4"
+                           >
+                </TextBlock>
+
+                <!--Validez El Tiempo -->
+                <TextBlock Grid.Column="3" Grid.Row="3"
+                           Text="Caducidad"
+                           Foreground="White"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Margin="0,-120,0,0"
+                           Background="#A80053"
+                           Height="30"
+                           Width="110"
+                           TextAlignment="Center"
+                           Padding="4"
+                           >
+                </TextBlock>
+                
+                <!--Seccion validez de los dos servicios-->
+                <!--#region Seccion validez City -->
+                <StackPanel Grid.Column="3" Grid.Row="1"  Width="80" Height="75" Margin="0,30,0,0">
+                    <TextBlock x:Name="txtDiasCity"
+                        Text="00"
+                        FontSize="45"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        >
+                    </TextBlock>
+
+                    <Label Content="Dias"
+                           Foreground="Black"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                           Padding="0"
+                           Margin="0,-8,0,0"
+                           FontWeight="SemiBold">
+
+                    </Label>
+                </StackPanel>
+                <!--#endregion-->
+
+                <!--#region Seccion validez El Tiempo -->
+                <StackPanel Grid.Column="3" Grid.Row="3"  Width="80" Height="75" Margin="0,30,0,0">
+                    <TextBlock x:Name="txtDiasET"
+                        Text="00"
+                        FontSize="45"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        >
+                    </TextBlock>
+
+                    <Label Content="Dias"
+                           Foreground="Black"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                           Padding="0"
+                           Margin="0,-8,0,0"
+                           FontWeight="SemiBold">
+
+                    </Label>
+                </StackPanel>
+                <!--#endregion-->
+
+            </Grid>
+            <!--#endregion-->
+
+
+
+        </Grid>
+    </Border>
+</Window>

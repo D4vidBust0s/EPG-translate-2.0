@@ -1,0 +1,28 @@
+﻿<Window x:Class="EPG_translate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPG_translate"
+        mc:Ignorable="d"
+        Title="EPG-Translate" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="true" Icon="/Images/Icon.png">
+    
+    <Border CornerRadius="10">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/Splash.png"/>
+        </Border.Background>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ProgressBar x:Name="progres" Height="10" Width="390" Margin="309,495,301,95"  IsIndeterminate="True"/>
+        </Grid>
+    </Border>
+</Window>

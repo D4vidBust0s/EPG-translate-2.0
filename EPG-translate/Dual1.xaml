@@ -1,0 +1,558 @@
+﻿<Window x:Class="EPG_translate.Dual1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EPG_translate"
+        mc:Ignorable="d"
+        
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        
+         Title="Principal" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" Icon="/Images/Icon.png">
+    <Border CornerRadius="10">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/Generic.png"/>
+        </Border.Background>
+
+        <!--#region Definicion de columnas -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="289*"/>
+                <ColumnDefinition Width="911*"/>
+
+            </Grid.ColumnDefinitions>
+            <!--#endregion-->
+
+            <!--#region Definicion de filas -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*" />
+                <RowDefinition Height="156*" />
+
+            </Grid.RowDefinitions>
+            <!--#endregion-->
+
+            <!--#region Cabezero -->
+
+            <Label
+                   Content="Ingesta Paso # 2"
+                   VerticalAlignment="Center"
+                   FontSize="25"
+                   Foreground="White"
+                   Padding="15,0,0,0" 
+                   Grid.Column="1" 
+                   Height="34"
+                   HorizontalAlignment="Left"/>
+
+
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,30,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Close.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,35.5,0"
+                   Width="24"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,70,0"/>
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/Minimizar.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,74.5,0"
+                   Width="26"
+                   Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown_2"/>
+
+
+            <Image Grid.Column="1" Grid.Row="0"
+                   Source="/Images/engranaje.PNG"
+                   HorizontalAlignment="Right"
+                   Margin="0,0,117,0"
+                   Width="25"
+                   Cursor="Hand" 
+                   MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+
+            <Ellipse Grid.Column="1" Grid.Row="0"
+                     Width="35"
+                     Height="35"
+                     Fill="White"
+                     HorizontalAlignment="Right"
+                     Panel.ZIndex="-8"
+                     Margin="0,0,112,0"/>
+
+            <!--#endregion-->
+
+            <!--#region Sidebar -->
+            <StackPanel
+                        Grid.Row="1"
+                        VerticalAlignment="Center" 
+                        Height="80"
+                        >
+
+                <Button Height="30"
+                        Width="200"
+                        Content="Dasboard"
+                        FontSize="20" Click="Button_Click">
+                </Button>
+
+                <Button x:Name="btnOk" Height="30"
+                        Width="200"
+                        Content="Continuar"
+                        FontSize="20"
+                        Margin="0,15,0,0" Click="btnOk_Click"/>
+
+            </StackPanel>
+            <!--#endregion-->
+
+            <!--#region Content -->
+            <Grid Grid.Column="1" 
+                  Grid.Row="1">
+
+                <!--Definicion de Columnas-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Definicion de Filas-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="257*"/>
+                    <RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+
+
+                <!--Cabecero-->
+                <Label x:Name="Titulo" Grid.Column="1" Grid.ColumnSpan="2"
+                       Content="Espere mientras el sistema valida los documentos"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+
+
+                <!--Area City-->
+                <StackPanel Grid.Column="1" Grid.Row="1" Margin="0,55,0,0" >
+                    <Label x:Name="EncabezadoCity" Content="Validación de documento Citytv"
+                           FontSize="20"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+
+                    <!--Grid Validadores-->
+                    <Grid Height="280" Margin="40,70,40,0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="27*"/>
+                            <ColumnDefinition Width="197*"/>
+                            <ColumnDefinition  Width="40"/>
+                            <ColumnDefinition  Width="70"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition  Height="40"/>
+                        </Grid.RowDefinitions>
+
+
+                        <!--Validadores-->
+                        <ProgressBar x:Name="progress1" Grid.Column="0" Grid.Row="0"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress2" Grid.Column="0" Grid.Row="1"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,2"/>
+
+                        <ProgressBar x:Name="progress3" Grid.Column="0" Grid.Row="2"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress4" Grid.Column="0" Grid.Row="3"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress5" Grid.Column="0" Grid.Row="4"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress6" Grid.Column="0" Grid.Row="5"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,2,10,3"/>
+
+                        <ProgressBar x:Name="progress7" Grid.Column="0" Grid.Row="6"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <!--Textos Validaciones-->
+                        <Label x:Name="lblProgres1" Grid.Column="2" 
+                               Content="Validando Fechas" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres2" Grid.Column="2" Grid.Row="1" 
+                               Content="Validando Horas" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres3" Grid.Column="2" Grid.Row="2" 
+                               Content="Validando Duración" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres4" Grid.Column="2" Grid.Row="3" 
+                               Content="Validando Título" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres5" Grid.Column="2" Grid.Row="4" 
+                               Content="Validando Synopsis" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres6" Grid.Column="2" Grid.Row="5" 
+                               Content="Validando Formato" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres7" Grid.Column="2" Grid.Row="6" 
+                               Content="Recodificando archivo" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <!--Ok - Failed-->
+                        <Label x:Name="lblOk1" Grid.Column="4" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk2" Grid.Column="4" Grid.Row="1" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk3" Grid.Column="4" Grid.Row="2" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk4" Grid.Column="4" Grid.Row="3" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk5" Grid.Column="4" Grid.Row="4" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk6" Grid.Column="4" Grid.Row="5" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk7" Grid.Column="4" Grid.Row="6" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <!--Number-->
+                        <Label x:Name="lblNumber1" Grid.Column="3" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber2" Grid.Column="3" Grid.Row="1" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber3" Grid.Column="3" Grid.Row="2" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber4" Grid.Column="3" Grid.Row="3" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber5" Grid.Column="3" Grid.Row="4" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber6" Grid.Column="3" Grid.Row="5" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber7" Grid.Column="3" Grid.Row="6" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                    </Grid>
+
+                    <Button
+                            x:Name="Seguir"
+                            Margin="0,30,0,0"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            Content="Continuar"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" 
+                            FontSize="18"
+                            Click="Seguir_Click"
+                            Width="250">
+                    </Button>
+                </StackPanel>
+
+                <!--Area ETTV-->
+                <StackPanel Grid.Column="2" Grid.Row="1" Margin="0,55,0,0" >
+                    <Label x:Name="EncabezadoET" Content="Validación de documento ETTV"
+                           FontSize="20"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+
+                    <!--Grid Validadores-->
+                    <Grid Height="280" Margin="40,70,40,0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="27*"/>
+                            <ColumnDefinition Width="197*"/>
+                            <ColumnDefinition  Width="40"/>
+                            <ColumnDefinition  Width="70"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition  Height="40"/>
+                        </Grid.RowDefinitions>
+
+
+                        <!--Validadores-->
+                        <ProgressBar x:Name="progress11" Grid.Column="0" Grid.Row="0"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress22" Grid.Column="0" Grid.Row="1"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,2"/>
+
+                        <ProgressBar x:Name="progress33" Grid.Column="0" Grid.Row="2"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress44" Grid.Column="0" Grid.Row="3"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress55" Grid.Column="0" Grid.Row="4"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <ProgressBar x:Name="progress66" Grid.Column="0" Grid.Row="5"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,2,10,3"/>
+
+                        <ProgressBar x:Name="progress77" Grid.Column="0" Grid.Row="6"
+                          IsIndeterminate="True"
+                          Style="{StaticResource MaterialDesignCircularProgressBar}"
+                          Value="0" Height="30" Width="30" Grid.ColumnSpan="2" Margin="9,3,10,3"/>
+
+                        <!--Textos Validaciones-->
+                        <Label x:Name="lblProgres11" Grid.Column="2" 
+                               Content="Validando Fechas" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres22" Grid.Column="2" Grid.Row="1" 
+                               Content="Validando Horas" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres33" Grid.Column="2" Grid.Row="2" 
+                               Content="Validando Duración" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres44" Grid.Column="2" Grid.Row="3" 
+                               Content="Validando Título" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres55" Grid.Column="2" Grid.Row="4" 
+                               Content="Validando Synopsis" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres66" Grid.Column="2" Grid.Row="5" 
+                               Content="Validando Formato" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <Label x:Name="lblProgres77" Grid.Column="2" Grid.Row="6" 
+                               Content="Recodificando archivo" 
+                               Foreground="White"
+                               VerticalAlignment="Center" FontSize="15" Grid.ColumnSpan="2" Margin="0,0,39,0"/>
+
+                        <!--Ok - Failed-->
+                        <Label x:Name="lblOk11" Grid.Column="4" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk22" Grid.Column="4" Grid.Row="1" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk33" Grid.Column="4" Grid.Row="2" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk44" Grid.Column="4" Grid.Row="3" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk55" Grid.Column="4" Grid.Row="4" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk66" Grid.Column="4" Grid.Row="5" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <Label x:Name="lblOk77" Grid.Column="4" Grid.Row="6" 
+                               Content="OK" 
+                               Foreground="DarkGreen"
+                               VerticalAlignment="Center" FontSize="15" Margin="1,0,-1,0"/>
+
+                        <!--Number-->
+                        <Label x:Name="lblNumber11" Grid.Column="3" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber22" Grid.Column="3" Grid.Row="1" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber33" Grid.Column="3" Grid.Row="2" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber44" Grid.Column="3" Grid.Row="3" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber55" Grid.Column="3" Grid.Row="4" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber66" Grid.Column="3" Grid.Row="5" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                        <Label x:Name="lblNumber77" Grid.Column="3" Grid.Row="6" 
+                               Content="0" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontSize="15"/>
+
+                    </Grid>
+
+                    <Button
+                            x:Name="Seguir2"
+                            Margin="0,30,0,0"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            Content="Continuar"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}" 
+                            FontSize="18"
+                            Click="Seguir_Click"
+                            Width="250">
+                    </Button>
+                </StackPanel>
+
+
+
+            </Grid>
+            <!--#endregion-->
+        </Grid>
+    </Border>
+</Window>
